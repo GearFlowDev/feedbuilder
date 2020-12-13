@@ -14,6 +14,7 @@ defmodule Feedbuilder.Merchant.Item do
     :image_link,
     :condition,
     :availability,
+    :price,
     :gtin,
     :brand,
     :mpn,
