@@ -45,7 +45,7 @@ defmodule Feedbuilder.Merchant do
         %Index{} = reference
       ) do
     element =
-      sitemap_element(reference)
+      index_element(reference)
       |> XmlBuilder.generate()
 
     element_length = IO.iodata_length(element)
@@ -122,7 +122,7 @@ defmodule Feedbuilder.Merchant do
 
   defp item_element(%Item{} = item) do
     elements =
-      [:id, :title, :description, :link]
+      [:id, :title, :description, :link, :image_link, :availability, :price]
       |> Enum.reduce([], fn k, acc ->
         case Map.get(item, k) do
           nil ->
@@ -136,7 +136,7 @@ defmodule Feedbuilder.Merchant do
     XmlBuilder.element(:item, elements)
   end
 
-  defp sitemap_element(%Index{} = reference) do
+  defp index_element(%Index{} = reference) do
     elements =
       [:loc, :lastmod]
       |> Enum.reduce([], fn k, acc ->

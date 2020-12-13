@@ -34,7 +34,8 @@ defmodule Feedbuilder.Merchant.Item do
           link: String.t(),
           image_link: String.t(),
           condition: condition | nil,
-          availability: availability | nil
+          availability: availability | nil,
+          price: String.t()
         }
 end
 
