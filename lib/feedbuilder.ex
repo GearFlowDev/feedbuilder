@@ -24,7 +24,7 @@ defmodule Feedbuilder do
     name = Keyword.get(opts, :name)
     name_prefix = Keyword.get(opts, :name_prefix, "")
     gzip_enabled = Keyword.get(opts, :gzip, true)
-    index_enabled = Keyword.get(opts, :index, true)
+    # index_enabled = Keyword.get(opts, :index, true)
 
     enum
     |> Stream.concat([:end])

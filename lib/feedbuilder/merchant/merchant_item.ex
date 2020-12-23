@@ -35,7 +35,10 @@ defmodule Feedbuilder.Merchant.Item do
           image_link: String.t(),
           condition: condition | nil,
           availability: availability | nil,
-          price: String.t()
+          price: String.t(),
+          gtin: String.t(),
+          brand: String.t(),
+          mpn: String.t()
         }
 end
 

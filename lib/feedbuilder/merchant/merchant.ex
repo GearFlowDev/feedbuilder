@@ -122,7 +122,19 @@ defmodule Feedbuilder.Merchant do
 
   defp item_element(%Item{} = item) do
     elements =
-      [:id, :title, :description, :link, :image_link, :availability, :price]
+      [
+        :id,
+        :title,
+        :description,
+        :link,
+        :image_link,
+        :condition,
+        :availability,
+        :price,
+        :gtin,
+        :brand,
+        :mpn
+      ]
       |> Enum.reduce([], fn k, acc ->
         case Map.get(item, k) do
           nil ->
