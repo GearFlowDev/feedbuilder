@@ -133,7 +133,8 @@ defmodule Feedbuilder.Merchant do
         :price,
         :gtin,
         :brand,
-        :mpn
+        :mpn,
+        :shipping
       ]
       |> Enum.reduce([], fn k, acc ->
         case Map.get(item, k) do
@@ -141,11 +142,26 @@ defmodule Feedbuilder.Merchant do
             acc
 
           v ->
-            acc ++ [{"g:#{k}", Encoder.encode(v)}]
+            acc ++ encode_item_element(k, v)
         end
       end)
 
     XmlBuilder.element(:item, elements)
+  end
+
+  defp encode_item_element(:shipping = element, value) do
+    [
+      {"g:shipping", nil,
+       [
+         {"g:country", nil, Encoder.encode(value.country)},
+         {"g:service", nil, Encoder.encode(value.service)},
+         {"g:price", nil, Encoder.encode(value.price)}
+       ]}
+    ]
+  end
+
+  defp encode_item_element(element, value) do
+    [{"g:#{element}", Encoder.encode(value)}]
   end
 
   defp index_element(%Index{} = reference) do

@@ -18,6 +18,7 @@ defmodule Feedbuilder.Merchant.Item do
     :gtin,
     :brand,
     :mpn,
+    :shipping,
     :product_type,
     :google_product_category,
     :additional_image_link,
@@ -36,6 +37,7 @@ defmodule Feedbuilder.Merchant.Item do
           condition: condition | nil,
           availability: availability | nil,
           price: String.t(),
+          shipping: Feedbuilder.Merchant.Item.Shipping,
           gtin: String.t(),
           brand: String.t(),
           mpn: String.t()
