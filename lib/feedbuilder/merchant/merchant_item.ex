@@ -22,7 +22,12 @@ defmodule Feedbuilder.Merchant.Item do
     :product_type,
     :google_product_category,
     :additional_image_link,
-    :mobile_link
+    :mobile_link,
+    :custom_label_0,
+    :custom_label_1,
+    :custom_label_2,
+    :custom_label_3,
+    :custom_label_4
   ]
 
   @type condition :: :new | :used | :refurbished
@@ -40,7 +45,12 @@ defmodule Feedbuilder.Merchant.Item do
           shipping: Feedbuilder.Merchant.Item.Shipping,
           gtin: String.t(),
           brand: String.t(),
-          mpn: String.t()
+          mpn: String.t(),
+          custom_label_0: String.t(),
+          custom_label_1: String.t(),
+          custom_label_2: String.t(),
+          custom_label_3: String.t(),
+          custom_label_4: String.t()
         }
 end
 

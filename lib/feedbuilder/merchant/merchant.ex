@@ -134,7 +134,12 @@ defmodule Feedbuilder.Merchant do
         :gtin,
         :brand,
         :mpn,
-        :shipping
+        :shipping,
+        :custom_label_0,
+        :custom_label_1,
+        :custom_label_2,
+        :custom_label_3,
+        :custom_label_4
       ]
       |> Enum.reduce([], fn k, acc ->
         case Map.get(item, k) do
